@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plugin Test</title>
+</head>
+<body>
+    <p>jQuery test 1</p>
+    <p>jQuery test 2</p>
+    <p>jQuery test 3</p>
+    <p>jQuery test 4</p>
+    <p>jQuery test 5</p>
+
+    <div id="div1">
+        <p>
+            jQuery test in div
+        </p>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // 我们可以首先打印看看$.fn到底是什么
+        console.log($.fn)
+
+        // 然后我们可以扩展一个自己的方法，可以看到扩展非常简洁和方便
+        $.fn.getNodeName = function() {
+            // 这里的this就是实例化后的对象，比如下面的p标签
+            console.log(this[0].nodeName)
+        }
+    </script>
+    <script type="text/javascript">
+        //现在我们就可以用自己的扩展了
+        var $p = $('p')
+        console.log($p)
+        var $div1 = $('#div1')
+        console.log($div1)
+
+        console.log(`p标签的名字是${$p.getNodeName()}`)
+        console.log(`div标签的名字是${$div1.getNodeName()}`)
+    </script>
+</body>
+</html>
